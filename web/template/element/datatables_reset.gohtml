@@ -1,0 +1,7 @@
+{{ define "datatables_reset" }}
+    $("<button id='buttonResetSorting'>Reset sorting</button>").appendTo(".dataTables_length");
+
+    $("#buttonResetSorting").on("click", function () {
+        dt.order.neutral().draw();
+    })
+{{ end }}

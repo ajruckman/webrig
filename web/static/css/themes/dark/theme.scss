@@ -1,0 +1,57 @@
+// Primary hue: 200
+// Accent hue: 230
+
+// Colors
+$colorPageBG: #000;
+$colorHeaderBG: #090b0d;
+
+$colorBorder: #242e33;
+
+//$colorAccent: #4060ff;
+//$colorAccentHover: #3956e6;
+$colorAccent: #5040ff;
+$colorAccentHover: #4839e6;
+
+$colorText: #e6eef2;
+$colorTextDithered1: #ced5d9;
+$colorTextDithered2: #b6bcbf;
+$colorTextDithered3: #9da3a6;
+
+$colorItemBG: #242e33;
+$colorItemBorder: #36454d;
+
+$colorTDEven: #050708;
+$colorTDEvenHover: lighten($colorTDEven, 3%);
+$colorTDOdd: #080b0d;
+$colorTDOddHover: lighten($colorTDOdd, 3%);
+
+$colorInputBG: #242e33;
+$colorInputBGHover: #29353b;
+$colorInputBGActive: #2e3c42;
+$colorInputBGDisabled: #1b2226;
+$colorInputBorder: #475c66;
+$colorInputBorderDithered1: #242e33;
+$colorInputBorderDithered2: #1b2226;
+$colorInputBorderDithered3: #12171a;
+
+$colorButtonBG: $colorInputBG;
+$colorButtonBGHover: $colorInputBGHover;
+$colorButtonBGActive: $colorInputBGActive;
+$colorButtonBGDisabled: $colorInputBGDisabled;
+$colorButtonBorder: $colorInputBorder;
+$colorButtonBorderDithered1: $colorInputBorderDithered1;
+$colorButtonBorderDithered2: $colorInputBorderDithered2;
+$colorButtonBorderDithered3: $colorInputBorderDithered3;
+//$colorButtonBG: #242e33;
+//$colorButtonBGHover: #29353b;
+//$colorButtonBGActive: #2e3c42;
+//$colorButtonBGDisabled: #1b2226;
+//$colorButtonBorder: #475c66;
+//$colorButtonBorderDithered1: #242e33;
+//$colorButtonBorderDithered2: #1b2226;
+//$colorButtonBorderDithered3: #12171a;
+
+// Sizing
+$heightInput: 24px;
+$heightButton: 24px;
+$sizeText: 10pt;

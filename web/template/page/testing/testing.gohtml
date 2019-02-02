@@ -1,0 +1,96 @@
+{{ template "head" }}
+
+<body>
+<button class="rigButton">Rig button</button>
+
+<input style="width: 20em" type="text">
+
+<select style="width: 7em" name="Select1" class="rigSelect">
+    {{ range $v := .sampleSelectData }}
+        <option value="{{$v}}">{{$v}}</option>
+    {{ end }}
+</select>
+
+<br>
+<br>
+
+<select style="width: 20em" name="Select2" id="formDemoSelect">
+    {{ range $v := .sampleSelectData }}
+        <option value="{{$v}}">{{$v}}</option>
+    {{ end }}
+</select>
+
+<br>
+<br>
+
+<table class="multiFilter" id="sampleTable">
+    <thead>
+    <tr>
+        <th class="colHidden">ID</th>
+        <th>Client</th>
+        <th>Question</th>
+        <th>Type</th>
+        <th>Action</th>
+        <th>Response</th>
+        <th>ResponseType</th>
+        <th>Source</th>
+    </tr>
+    <tr>
+        <th class="colHidden">ID</th>
+        <th class="colFirstDisplayed">Client</th>
+        <th>Question</th>
+        <th>Type</th>
+        <th>Action</th>
+        <th>Response</th>
+        <th>ResponseType</th>
+        <th class="colLastDisplayed">Source</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{ range $v := .sampleTableData }}
+        <tr>
+            <td class="colHidden">{{ $v.ID }}</td>
+            <td class="colFirstDisplayed">{{ $v.Client }}</td>
+            <td>{{ $v.Question }}</td>
+            <td>{{ $v.QuestionType }}</td>
+            <td>{{ $v.Action }}</td>
+            <td>{{ $v.Response }}</td>
+            <td>{{ $v.ResponseType }}</td>
+            <td class="colLastDisplayed">{{ $v.Source }}</td>
+        </tr>
+    {{end}}
+    </tbody>
+</table>
+
+</body>
+
+<script>
+    $("#formDemoSelect").select2({});
+
+    let dt = $("#sampleTable").DataTable({
+        autoWidth: false,
+        columnDefs: [
+            {targets: 0, visible: false, searchable: false},
+            {targets: 2, width: "5em"},
+        ],
+        {{ template "datatables_common" }}
+    });
+
+    {{ template "datatables_multifilter" "sampleTable" }}
+    {{ template "datatables_reset" }}
+
+    dt.on('mouseup', 'tbody tr', function (event) {
+        let row = dt.row(this).data();
+
+        let addr = `/testing/view/${row[0]}`;
+
+        if (event.button === 1) {
+            window.open(addr, '_blank');
+        } else if (event.button === 0) {
+            location.href = addr;
+        }
+    });
+</script>
+
+{{ template "foot" }}

@@ -1,0 +1,50 @@
+{{ define "head" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Rig 1</title>
+
+    {{/* Vendor files */}}
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:400,500,700" rel="stylesheet">
+
+    {{/* Package files */}}
+    <link href="/static/css/build/style.dark.css" rel="stylesheet">
+    <link href="/static/css/build/structure.dark.css" rel="stylesheet">
+    <link href="/static/css/build/overrides_datatables.dark.css" rel="stylesheet">
+    <link href="/static/css/build/overrides_select2.dark.css" rel="stylesheet">
+    <script src="/static/js/theme.js"></script>
+
+    <script>
+        loadTheme();
+
+        $.fn.dataTable.Api.register('order.neutral()', function () {
+            return this.iterator('table', function (s) {
+                s.aaSorting.length = 0;
+                s.aiDisplay.sort(function (a, b) {
+                    return a - b;
+                });
+                s.aiDisplayMaster.sort(function (a, b) {
+                    return a - b;
+                });
+            });
+        });
+    </script>
+</head>
+{{ end }}
+
+{{ define "foot" }}
+</html>
+{{ end }}

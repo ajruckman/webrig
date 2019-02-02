@@ -1,0 +1,252 @@
+@import "theme";
+
+$padding: 0.35em;
+$cellPadding: 0.2em 0.4em;
+
+.dataTables_wrapper {
+    background-color: $colorPageBG;
+
+    .dataTable {
+        // https://stackoverflow.com/a/8068108
+        background-color: $colorPageBG;
+        border-bottom: none !important;
+        color: $colorTextDithered1;
+        overflow: hidden;
+        table-layout: fixed;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: calc(100% - 2 * #{$padding}) !important;
+
+        .colHidden {
+            display: none;
+        }
+
+        thead {
+            .sorting {
+                // Offset sort direction arrows to be in line with multifilter inputs
+                background-position: right 0 bottom 4px;
+            }
+        }
+
+        thead tr, tfoot tr {
+            th {
+                border-bottom: none !important;
+                color: $colorTextDithered2;
+                font-weight: bold;
+            }
+        }
+
+        tbody {
+            background-color: $colorPageBG;
+
+            tr {
+                overflow: hidden !important;
+
+                &.even {
+                    background-color: $colorTDEven !important;
+
+                    &:hover {
+                        background-color: $colorTDEvenHover !important;
+                    }
+                }
+
+                &.odd {
+                    background-color: $colorTDOdd !important;
+
+                    &:hover {
+                        background-color: $colorTDOddHover !important;
+                    }
+                }
+
+                // All tds
+                td {
+                    border-bottom: 1px solid $colorBorder;
+                    overflow: hidden !important;
+                    padding: $cellPadding;
+                    text-overflow: ellipsis;
+
+                    // The first displayed td of every row
+                    &.colFirstDisplayed {
+                        border-left: 1px solid $colorBorder;
+                    }
+
+                    // The last displayed td of every row
+                    &.colLastDisplayed {
+                        border-right: 1px solid $colorBorder;
+                    }
+                }
+
+                // The first row
+                &:first-child {
+                    // All tds in this row
+                    td {
+                        border-top: 1px solid $colorBorder;
+                    }
+
+                    // The first displayed td in this row
+                    td.colFirstDisplayed {
+                        border-top-left-radius: 5px;
+                    }
+
+                    // The last displayed td in this row
+                    td.colLastDisplayed {
+                        border-top-right-radius: 5px;
+                    }
+                }
+
+                &:last-child {
+                    // The first displayed td in this row
+                    td.colFirstDisplayed {
+                        border-bottom-left-radius: 5px;
+                    }
+
+                    // The last displayed td in this row
+                    td.colLastDisplayed {
+                        border-bottom-right-radius: 5px;
+                    }
+                }
+
+                &.shown {
+                    // Needed to prevent border bleed
+                    // https://stackoverflow.com/a/12387340
+                    overflow: hidden !important;
+
+                    td.colFirstDisplayed {
+                        border-bottom-left-radius: 5px;
+                    }
+
+                    td.colLastDisplayed {
+                        border-bottom-right-radius: 5px;
+                    }
+                }
+            }
+        }
+
+        &.multiFilter {
+            thead {
+                tr:nth-child(1) th {
+                    padding: $padding 0;
+                }
+
+                tr:nth-child(2) th {
+                    padding: 0.075em 0 0.25em 0;
+
+                    input {
+                        background-color: $colorPageBG;
+                        border: 1px solid $colorInputBorderDithered2;
+                        float: left;
+                        font-family: "Roboto Mono", monospace;
+                        height: 1.5em;
+                        margin-left: 1em;
+                        width: calc(100% - 2.45em);
+
+                        &:hover {
+                            border: 1px solid $colorInputBorderDithered1;
+                        }
+
+                        &:focus {
+                            border: 1px solid $colorInputBorder;
+                        }
+                    }
+
+                    // Don't add a left margin to the first filter box so the left border lines up with the table
+                    &.colFirstDisplayed input {
+                        margin-left: 0;
+                        width: calc(100% - 1.45em);
+                    }
+                }
+            }
+        }
+    }
+
+    .dataTables_paginate {
+        font-family: 'Roboto Mono', monospace;
+        height: $heightButton;
+        padding: $padding $padding 0 0;
+
+        // By default spans have no height or width, so we must display it as an inline-block with line-height set
+        // vertical-align: top must also be set to prevent the span from sticking up for low button heights
+        .ellipsis {
+            background-color: $colorButtonBGDisabled !important;
+            border-right: 1px solid $colorButtonBGHover;
+            border-right: 1px solid $colorButtonBorder !important;
+            color: $colorTextDithered2;
+            display: inline-block;
+            height: $heightButton;
+            padding: 0 4.5px 0 2px;
+            text-align: center;
+            vertical-align: top;
+            width: 1em;
+        }
+
+        .paginate_button {
+            align-items: center;
+            background: $colorButtonBG !important;
+            border-bottom: none !important;
+            border-left: none !important;
+            border-radius: 0 !important;
+            border-right: 1px solid $colorButtonBorder !important;
+            border-top: none !important;
+            color: $colorText !important;
+            display: inline-flex;
+            height: $heightButton;
+            margin: 0 !important;
+            padding: 0.5em 0.75em !important;
+
+            &.current {
+                background: $colorAccent !important;
+                border-right: 1px solid $colorButtonBorder !important;
+                color: $colorText !important;
+
+                &:hover {
+                    background: $colorAccentHover !important;
+                    color: $colorText !important;
+                }
+            }
+
+            &.disabled {
+                background: $colorButtonBGDisabled !important;
+                color: $colorTextDithered3 !important;
+
+                &:hover {
+                    background: $colorButtonBGDisabled !important;
+                    color: $colorTextDithered3 !important;
+                }
+            }
+
+            &:not(.disabled):not(.current) {
+                &:hover {
+                    background: $colorButtonBGHover !important;
+                }
+            }
+
+            &.previous {
+                border-bottom-left-radius: 5px !important;
+                border-top-left-radius: 5px !important;
+            }
+
+            &.next {
+                border-bottom-right-radius: 5px !important;
+                border-right: none !important;
+                border-top-right-radius: 5px !important;
+            }
+        }
+    }
+
+    .dataTables_length {
+        color: $colorTextDithered2;
+        padding: $padding calc(2 * #{$padding});
+    }
+
+    .dataTables_filter {
+        color: $colorTextDithered2;
+        padding: $padding;
+    }
+
+    .dataTables_info {
+        color: $colorTextDithered2;
+
+        // Make sure info text is vertically aligned with text inside pagination buttons
+        padding: 0.46em 0 0 calc(#{$padding} * 2);
+    }
+}

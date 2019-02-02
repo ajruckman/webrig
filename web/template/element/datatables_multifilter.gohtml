@@ -1,0 +1,25 @@
+{{ define "datatables_multifilter" }}
+$('#{{.}} thead tr:nth-child(2) th').each(function (index) {
+    let searchVal = dt.state().columns[dt.column.index('fromVisible', index)].search.search;
+    $(this).html('<input type="text" value="' + searchVal + '"/>');
+});
+
+$('#{{.}}_filter').hide();
+
+dt.columns().every(function () {
+    let that = this;
+
+    $('input', this.header()).on('keyup change', function () {
+        if (that.search() !== this.value) {
+            that
+                .search(this.value, true)
+                .draw();
+        }
+    });
+
+    $('input', this.header()).on('click', function (e) {
+        e.stopPropagation();
+    })
+});
+
+{{ end }}

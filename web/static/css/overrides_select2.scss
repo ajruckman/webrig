@@ -1,0 +1,75 @@
+@import "theme";
+
+// The dropdown parent box
+.select2-container--default .select2-selection--single {
+    align-items: center !important;
+    background-color: $colorInputBG !important;
+    border: 1px solid $colorInputBorder !important;
+    border-radius: 5px !important;
+    display: flex !important;
+    height: $heightButton !important;
+    outline: none !important;
+
+    .select2-selection__rendered {
+        color: $colorText !important;
+        font-family: "Roboto Mono", monospace !important;
+    }
+
+    &:hover {
+        background-color: $colorInputBGHover !important;
+    }
+
+    &:active {
+        background-color: $colorInputBGActive !important;
+    }
+
+    &[aria-expanded=true] {
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+
+    .select2-selection__rendered {
+        white-space: pre !important;
+    }
+}
+
+// All items
+.select2-dropdown {
+    background-color: $colorInputBG !important;
+    border-bottom: 1px solid $colorInputBorder !important;
+    border-left: 1px solid $colorInputBorder !important;
+    border-right: 1px solid $colorInputBorder !important;
+    border-top: none !important;
+    color: $colorText;
+    font-family: "Roboto Mono", monospace !important;
+    white-space: pre !important;
+}
+
+// Search bar
+.select2-search--dropdown {
+    border-bottom: 1px solid $colorInputBorder !important;
+
+    .select2-search__field {
+        background-color: $colorInputBGDisabled !important;
+        border: 1px solid $colorInputBorder !important;
+        border-radius: 5px;
+        color: $colorText;
+        font-family: "Roboto Mono", monospace;
+        height: $heightButton;
+        outline: none;
+    }
+}
+
+// The currently selected item
+.select2-container--default .select2-results__option[aria-selected=true], .select2-container--default .select2-results__option--highlighted[aria-selected=true] {
+    background-color: $colorAccent !important;
+
+    &:hover {
+        background-color: $colorAccentHover !important;
+    }
+}
+
+// The item hovered over
+.select2-container--default .select2-results__option--highlighted[aria-selected=false] {
+    background-color: $colorButtonBGHover !important;
+}
