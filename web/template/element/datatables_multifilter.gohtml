@@ -1,25 +1,29 @@
 {{ define "datatables_multifilter" }}
-$('#{{.}} thead tr:nth-child(2) th').each(function (index) {
-    let searchVal = dt.state().columns[dt.column.index('fromVisible', index)].search.search;
-    $(this).html('<input type="text" value="' + searchVal + '"/>');
-});
+            $('#{{.}} thead tr:nth-child(2) th').each(function (index) {
 
-$('#{{.}}_filter').hide();
+                if (dt.state() == null) {
+                    $(this).html('<input class="rigInput" type="text"/>');
+                } else {
+                    let searchVal = dt.state().columns[dt.column.index('fromVisible', index)].search.search;
+                    $(this).html('<input class="rigInput" type="text" value="' + searchVal + '"/>');
+                }
+            });
 
-dt.columns().every(function () {
-    let that = this;
+            $('#{{.}}_filter').hide();
 
-    $('input', this.header()).on('keyup change', function () {
-        if (that.search() !== this.value) {
-            that
-                .search(this.value, true)
-                .draw();
-        }
-    });
+            dt.columns().every(function () {
+                let that = this;
 
-    $('input', this.header()).on('click', function (e) {
-        e.stopPropagation();
-    })
-});
+                $('input', this.header()).on('keyup change', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value, true)
+                            .draw();
+                    }
+                });
 
+                $('input', this.header()).on('click', function (e) {
+                    e.stopPropagation();
+                })
+            });
 {{ end }}

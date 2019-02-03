@@ -3,7 +3,7 @@
 <body>
 <button class="rigButton">Rig button</button>
 
-<input style="width: 20em" type="text">
+<input class="rigInput" style="width: 20em" type="text">
 
 <select style="width: 7em" name="Select1" class="rigSelect">
     {{ range $v := .sampleSelectData }}
@@ -22,11 +22,29 @@
 
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <table class="multiFilter" id="sampleTable">
     <thead>
     <tr>
-        <th class="colHidden">ID</th>
+        <th class="">ID</th>
         <th>Client</th>
         <th>Question</th>
         <th>Type</th>
@@ -36,7 +54,7 @@
         <th>Source</th>
     </tr>
     <tr>
-        <th class="colHidden">ID</th>
+        <th class="">ID</th>
         <th class="colFirstDisplayed">Client</th>
         <th>Question</th>
         <th>Type</th>
@@ -48,49 +66,55 @@
     </thead>
 
     <tbody>
-    {{ range $v := .sampleTableData }}
-        <tr>
-            <td class="colHidden">{{ $v.ID }}</td>
-            <td class="colFirstDisplayed">{{ $v.Client }}</td>
-            <td>{{ $v.Question }}</td>
-            <td>{{ $v.QuestionType }}</td>
-            <td>{{ $v.Action }}</td>
-            <td>{{ $v.Response }}</td>
-            <td>{{ $v.ResponseType }}</td>
-            <td class="colLastDisplayed">{{ $v.Source }}</td>
-        </tr>
-    {{end}}
     </tbody>
 </table>
-
-</body>
 
 <script>
     $("#formDemoSelect").select2({});
 
     let dt = $("#sampleTable").DataTable({
-        autoWidth: false,
         columnDefs: [
             {targets: 0, visible: false, searchable: false},
             {targets: 2, width: "5em"},
         ],
+
+        serverSide: true,
+        ajax: {
+            url: "/testing~data",
+            type: 'GET',
+        },
+        columns: [
+            {data: "ID"},
+            {data: "Client"},
+            {data: "Question"},
+            {data: "QuestionType"},
+            {data: "Action"},
+            {data: "Response"},
+            {data: "ResponseType"},
+            {data: "Source"},
+        ],
+
+        rowCallback: function(row, data) {
+            $(row).on('mouseup', this, function(event) {
+                let addr = `/testing/view/${data.ID}`;
+
+                if (event.button === 1) {
+                    window.open(addr, '_blank');
+                } else if (event.button === 0) {
+                    location.href = addr;
+                }
+            });
+        },
+
+        initComplete: function() {
+            {{ template "datatables_multifilter" "sampleTable" }}
+            {{ template "datatables_resetbutton" }}
+        },
+
         {{ template "datatables_common" }}
     });
-
-    {{ template "datatables_multifilter" "sampleTable" }}
-    {{ template "datatables_reset" }}
-
-    dt.on('mouseup', 'tbody tr', function (event) {
-        let row = dt.row(this).data();
-
-        let addr = `/testing/view/${row[0]}`;
-
-        if (event.button === 1) {
-            window.open(addr, '_blank');
-        } else if (event.button === 0) {
-            location.href = addr;
-        }
-    });
 </script>
+
+</body>
 
 {{ template "foot" }}

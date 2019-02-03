@@ -1,6 +1,6 @@
 package handle
 
-type testTable struct {
+type sampleTable struct {
     ID           int    `db:"ID"`
     Client       string `db:"Client"`
     Question     string `db:"Question"`
@@ -11,7 +11,7 @@ type testTable struct {
     Source       string `db:"Source"`
 }
 
-var sampleTableData = []testTable{{1891011, "10.0.10.203", "scribe.logs.roku.com", "A", "block", "0.0.0.0", "A", "440623"},
+var sampleTableData = []sampleTable{{1891011, "10.0.10.203", "scribe.logs.roku.com", "A", "block", "0.0.0.0", "A", "440623"},
     {1891010, "10.0.10.203", "cooper.logs.roku.com", "A", "block", "0.0.0.0", "A", "440623"},
     {1891009, "10.0.10.203", "cdn-0.nflximg.com", "A", "forward", "dscg.netflix.com.edgesuite.net,a743.dscg.akamai.net,104.104.244.210,104.104.244.185", "CNAME,CNAME,A,A", ""},
     {1891008, "10.0.2.4", "r1---sn-5uaeznrz.googlevideo.com", "A", "forward", "r1.sn-5uaeznrz.googlevideo.com,74.125.7.70", "CNAME,A", ""},

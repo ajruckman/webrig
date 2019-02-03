@@ -19,6 +19,7 @@ func Serve() {
 
     app.Get("/", handle.Home)
     app.Get("/testing", handle.Testing)
+    app.Get("/testing~data", handle.Testing_Data)
 
     err := app.Run(iris.Addr(":" + config.Port))
     if err != iris.ErrServerClosed {

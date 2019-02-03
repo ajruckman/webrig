@@ -2,56 +2,46 @@ html {
   background-color: #000;
   color: #e6eef2;
   font-family: "Roboto", sans-serif;
-  font-size: 10pt;
-}
+  font-size: 10pt; }
 
-.rigButton, #buttonResetSorting, .rigSelect, .dataTables_length select {
+.rigButton, .rigSelect, .dataTables_length select, #buttonResetSorting {
   background-color: #242e33;
   border: 1px solid #475c66;
   border-radius: 5px;
   box-sizing: border-box;
   color: #b6bcbf;
   height: 24px;
-  outline: none;
-}
-.rigButton:hover, #buttonResetSorting:hover, .rigSelect:hover, .dataTables_length select:hover {
-  background-color: #29353b;
-}
-.rigButton:active, #buttonResetSorting:active, .rigSelect:active, .dataTables_length select:active {
-  background-color: #2e3c42;
-}
+  outline: none; }
+  .rigButton:hover, .rigSelect:hover, .dataTables_length select:hover, #buttonResetSorting:hover {
+    background-color: #29353b; }
+  .rigButton:active, .rigSelect:active, .dataTables_length select:active, #buttonResetSorting:active {
+    background-color: #2e3c42; }
 
 .rigSelect, .dataTables_length select {
-  padding-left: 2px;
-}
+  padding-left: 2px; }
 
 #buttonResetSorting {
-  margin-left: 1em;
-}
+  margin-left: 1em; }
 
 .dataTables_length select {
-  padding-top: 2px;
-}
+  padding-top: 2px; }
+
 @-moz-document url-prefix() {
   .dataTables_length select {
-    padding-top: unset;
-  }
-}
+    padding-top: unset; } }
 
 .itemMono {
   background-color: #242e33;
   border: 2px solid #36454d;
   border-radius: 4px;
   height: 24px;
-  padding: 0 0.5em;
-}
+  padding: 0 0.5em; }
 
 .textInfo {
   color: #b6bcbf;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
-input {
+.rigInput {
   background-color: #242e33;
   border: 1px solid #475c66;
   border-radius: 5px;
@@ -59,24 +49,16 @@ input {
   color: #e6eef2;
   height: 24px;
   outline: none;
-  padding-left: 4px;
-}
-input::placeholder {
-  color: #b6bcbf;
-}
-input:hover {
-  background-color: #29353b;
-}
-input:active {
-  background-color: #2e3c42;
-}
+  padding-left: 4px; }
+  .rigInput::placeholder {
+    color: #b6bcbf; }
+  .rigInput:hover {
+    background-color: #29353b; }
+  .rigInput:active {
+    background-color: #2e3c42; }
 
-.textMono, .dataTable tbody, .itemMono {
-  font-family: "Roboto Mono", monospace;
-}
+.textMono, .itemMono, .dataTable tbody {
+  font-family: "Roboto Mono", monospace; }
 
 .textDithered {
-  color: #b6bcbf;
-}
-
-/*# sourceMappingURL=style.dark.css.map */
+  color: #b6bcbf; }

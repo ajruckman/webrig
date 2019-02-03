@@ -2,6 +2,6 @@ ForEach ($scss in $( Get-ChildItem -Exclude theme.scss | Where-Object { $_.Exten
 {
     ForEach ($theme in $( Get-ChildItem -Directory .\themes\ ))
     {
-        S:\sass\sass.bat --update -I . -I .\themes\$($theme.Name)\ .\$( $scss.Name ):.\build\$($scss.BaseName).$( $theme.Name ).css
+        S:\libsass\sassc.exe -I . -I .\themes\$($theme.Name)\ .\$( $scss.Name ) .\build\$($scss.BaseName).$( $theme.Name ).css
     }
 }
