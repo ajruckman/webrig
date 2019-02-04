@@ -29,9 +29,10 @@
     }
 
     .select2-selection__rendered {
-        white-space: pre !important;
         height: $heightButton !important;
         line-height: $heightButton !important;
+        padding-left: 6px !important;
+        white-space: pre !important;
     }
 }
 
