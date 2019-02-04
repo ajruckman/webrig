@@ -11,7 +11,7 @@
         //    },
         */}}
 
-        $(row).on('mouseup', this, function(event) {
+        $(row).off('mouseup').on('mouseup', this, function(event) {
                 // Go template will wrap this value with quotes, so we trim the first and last character
                 let addr = `{{ . }}`.slice(1, -1);
 
