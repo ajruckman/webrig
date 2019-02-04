@@ -30,8 +30,11 @@
 
     .select2-selection__rendered {
         white-space: pre !important;
+        height: $heightButton !important;
+        line-height: $heightButton !important;
     }
 }
+
 
 // All items
 .select2-dropdown {
