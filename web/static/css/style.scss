@@ -5,6 +5,10 @@ html {
     color: $colorText;
     font-family: "Roboto", sans-serif;
     font-size: $sizeText;
+    
+    body {
+        margin: 0;
+    }
 }
 
 .rigButton {
