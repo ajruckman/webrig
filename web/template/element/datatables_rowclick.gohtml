@@ -1,4 +1,5 @@
 {{ define "datatables_rowclick" }}
+        {{/*
         // To use this function with a normal datatable, call it like this:
         //     rowCallback: function(row, data) {
         //         {{ template "datatables_rowclick" "/view/${data[0]}/${data[1]}/${data[2]}" }}
@@ -8,6 +9,7 @@
         //     rowCallback: function(row, data) {
         //         {{ template "datatables_rowclick" "/view/${data.IP}/${data.Subnet}/${data.VLAN}" }}
         //    },
+        */}}
 
         $(row).on('mouseup', this, function(event) {
                 // Go template will wrap this value with quotes, so we trim the first and last character
