@@ -40,7 +40,6 @@ func Testing_Data(ctx iris.Context) {
     }
 
     _, err = ctx.JSON(resp)
-    _, err = ctx.JSON(resp)
     liberr.Err(err)
 }
 
