@@ -95,15 +95,7 @@
         ],
 
         rowCallback: function(row, data) {
-            $(row).on('mouseup', this, function(event) {
-                let addr = `/testing/view/${data.ID}`;
-
-                if (event.button === 1) {
-                    window.open(addr, '_blank');
-                } else if (event.button === 0) {
-                    location.href = addr;
-                }
-            });
+            {{ template "datatables_rowclick" "/testing/view/${data.ID}" }}
         },
 
         initComplete: function() {

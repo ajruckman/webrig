@@ -1,0 +1,12 @@
+{{ define "datatables_rowclick" }}
+            $(row).on('mouseup', this, function(event) {
+                // Go template will wrap this value with quotes, so we trim the first and last character
+                let addr = `{{ . }}`.slice(1, -1);
+
+                if (event.button === 1) {
+                    window.open(addr, '_blank');
+                } else if (event.button === 0) {
+                    location.href = addr;
+                }
+            });
+{{ end }}
