@@ -1,0 +1,56 @@
+.rigHTML {
+  background-color: #000;
+  color: #e6eef2;
+  font-family: "Roboto", sans-serif;
+  font-size: 10pt; }
+  .rigHTML body {
+    margin: 0; }
+
+.rigButton, .rigSelect {
+  background-color: #242e33;
+  border: 1px solid #475c66;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #b6bcbf;
+  height: 24px;
+  outline: none; }
+  .rigButton:hover, .rigSelect:hover {
+    background-color: #29353b; }
+  .rigButton:active, .rigSelect:active {
+    background-color: #2e3c42; }
+
+.rigInput {
+  background-color: #242e33;
+  border: 1px solid #475c66;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #e6eef2;
+  height: 24px;
+  outline: none;
+  padding-left: 6px; }
+  .rigInput::placeholder {
+    color: #b6bcbf; }
+  .rigInput:hover {
+    background-color: #29353b; }
+  .rigInput:active {
+    background-color: #2e3c42; }
+
+.rigSelect {
+  padding-left: 2px; }
+
+.itemMono {
+  background-color: #242e33;
+  border: 2px solid #36454d;
+  border-radius: 4px;
+  height: 24px;
+  padding: 0 0.5em; }
+
+.textInfo {
+  color: #b6bcbf;
+  font-weight: bold; }
+
+.textMono, .itemMono {
+  font-family: "Roboto Mono", monospace; }
+
+.textDithered {
+  color: #b6bcbf; }

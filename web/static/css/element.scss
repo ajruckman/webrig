@@ -1,0 +1,82 @@
+@import "theme";
+
+.rigHTML {
+  background-color: $colorPageBG;
+  color: $colorText;
+  font-family: "Roboto", sans-serif;
+  font-size: $sizeText;
+
+  body {
+    margin: 0;
+  }
+}
+
+.rigButton {
+  background-color: $colorButtonBG;
+  border: 1px solid $colorButtonBorder;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: $colorTextDithered2;
+  height: $heightButton;
+  outline: none;
+
+  &:hover {
+    background-color: $colorButtonBGHover;
+  }
+
+  &:active {
+    background-color: $colorButtonBGActive;
+  }
+}
+
+.rigInput {
+  background-color: $colorInputBG;
+  border: 1px solid $colorInputBorder;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: $colorText;
+  height: $heightInput;
+  outline: none;
+  padding-left: 6px;
+
+  &::placeholder {
+    color: $colorTextDithered2;
+  }
+
+  &:hover {
+    background-color: $colorInputBGHover;
+  }
+
+  &:active {
+    background-color: $colorInputBGActive;
+  }
+}
+
+.rigSelect {
+  @extend .rigButton;
+
+  padding-left: 2px;
+}
+
+.itemMono {
+  @extend .textMono;
+
+  background-color: $colorItemBG;
+  border: 2px solid $colorItemBorder;
+  border-radius: 4px;
+  height: $heightButton;
+  padding: 0 0.5em;
+}
+
+.textInfo {
+  color: $colorTextDithered2;
+  font-weight: bold;
+}
+
+.textMono {
+  font-family: "Roboto Mono", monospace;
+}
+
+.textDithered {
+  color: $colorTextDithered2;
+}

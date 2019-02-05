@@ -17,6 +17,9 @@
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important; }
   .select2-container--default .select2-selection--single .select2-selection__rendered {
+    height: 24px !important;
+    line-height: 24px !important;
+    padding-left: 6px !important;
     white-space: pre !important; }
 
 .select2-dropdown {

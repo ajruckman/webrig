@@ -1,0 +1,23 @@
+@import "theme";
+@import "element";
+
+#buttonResetSorting {
+    @extend .rigButton;
+
+    margin-left: 1em;
+}
+
+.dataTables_length select {
+    @extend .rigSelect;
+
+    padding-top: 2px;
+
+    // Because of this: https://stackoverflow.com/questions/5439782/i-want-to-vertical-align-text-in-select-box
+    @-moz-document url-prefix() {
+        padding-top: unset;
+    }
+}
+
+.dataTable tbody {
+    @extend .textMono;
+}
