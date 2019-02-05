@@ -44,7 +44,7 @@
 <table class="multiFilter" id="sampleTable">
     <thead>
     <tr>
-        <th class="">ID</th>
+        <th>ID</th>
         <th>Client</th>
         <th>Question</th>
         <th>Type</th>
@@ -54,7 +54,7 @@
         <th>Source</th>
     </tr>
     <tr>
-        <th class="">ID</th>
+        <th>ID</th>
         <th class="colFirstDisplayed">Client</th>
         <th>Question</th>
         <th>Type</th>
@@ -95,6 +95,8 @@
         ],
 
         rowCallback: function(row, data) {
+            $(row).find('td:nth-child(1)').addClass("colFirstDisplayed");
+            $(row).find('td:nth-child(7)').addClass("colLastDisplayed");
             {{ template "datatables_rowclick" "/testing/view/${data.ID}" }}
         },
 
