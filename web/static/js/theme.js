@@ -43,7 +43,7 @@ function loadTheme() {
         theme = "dark";
     }
 
-    ['structure', 'style'].forEach(function (sheet) {
+    ['structure', 'element', 'local', 'overrides_datatables', 'overrides_select2'].forEach(function (sheet) {
         linkStylesheet("/static/css/build/" + sheet + "." + theme + ".css");
     });
 

@@ -64,3 +64,28 @@
 @-moz-document url-prefix() {
   .dataTables_length select {
     padding-top: unset; } }
+
+.rigHTML body {
+  margin: 0.5em !important; }
+
+.dataTables_wrapper .dataTable tbody .rowActionBlock.even {
+  background-color: #1f0000 !important; }
+  .dataTables_wrapper .dataTable tbody .rowActionBlock.even:hover {
+    background-color: #2e0000 !important; }
+
+.dataTables_wrapper .dataTable tbody .rowActionBlock.odd {
+  background-color: #240000 !important; }
+  .dataTables_wrapper .dataTable tbody .rowActionBlock.odd:hover {
+    background-color: #330000 !important; }
+
+.dataTables_wrapper .dataTable tbody .rowActionAllow.even {
+  background-color: #001f00 !important; }
+  .dataTables_wrapper .dataTable tbody .rowActionAllow.even:hover {
+    background-color: #002e00 !important; }
+
+.dataTables_wrapper .dataTable tbody .rowActionAllow.odd {
+  background-color: #002400 !important; }
+  .dataTables_wrapper .dataTable tbody .rowActionAllow.odd:hover {
+    background-color: #003300 !important; }
+
+/*# sourceMappingURL=local.dark.css.map */

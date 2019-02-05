@@ -2,22 +2,71 @@
 @import "element";
 
 #buttonResetSorting {
-    @extend .rigButton;
+     @extend .rigButton;
 
-    margin-left: 1em;
+     margin-left: 1em;
 }
 
 .dataTables_length select {
-    @extend .rigSelect;
+     @extend .rigSelect;
 
-    padding-top: 2px;
+     padding-top: 2px;
 
-    // Because of this: https://stackoverflow.com/questions/5439782/i-want-to-vertical-align-text-in-select-box
-    @-moz-document url-prefix() {
-        padding-top: unset;
-    }
+     // Because of this: https://stackoverflow.com/questions/5439782/i-want-to-vertical-align-text-in-select-box
+     @-moz-document url-prefix() {
+          padding-top: unset;
+     }
 }
 
+
 .dataTable tbody {
-    @extend .textMono;
+     @extend .textMono;
+}
+
+.rigHTML body {
+     margin: 0.5em !important;
+}
+
+
+$colorTDEvenActionBlock: #1f0000;
+$colorTDEvenActionBlockHover: lighten($colorTDEvenActionBlock, 3%);
+$colorTDOddActionBlock: #240000;
+$colorTDOddActionBlockHover: lighten($colorTDOddActionBlock, 3%);
+
+$colorTDEvenActionAllow: #001400;
+$colorTDEvenActionAllowHover: lighten($colorTDEvenActionAllow, 3%);
+$colorTDOddActionAllow: #001f00;
+$colorTDOddActionAllowHover: lighten($colorTDOddActionAllow, 3%);
+
+
+.dataTables_wrapper .dataTable tbody .rowActionBlock.even {
+     background-color: $colorTDEvenActionBlock !important;
+
+     &:hover {
+          background-color: $colorTDEvenActionBlockHover !important;
+     }
+}
+
+.dataTables_wrapper .dataTable tbody .rowActionBlock.odd {
+     background-color: $colorTDOddActionBlock !important;
+
+     &:hover {
+          background-color: $colorTDOddActionBlockHover !important;
+     }
+}
+
+.dataTables_wrapper .dataTable tbody .rowActionAllow.even {
+     background-color: $colorTDEvenActionAllow !important;
+
+     &:hover {
+          background-color: $colorTDEvenActionAllowHover !important;
+     }
+}
+
+.dataTables_wrapper .dataTable tbody .rowActionAllow.odd {
+     background-color: $colorTDOddActionAllow !important;
+
+     &:hover {
+          background-color: $colorTDOddActionAllowHover !important;
+     }
 }

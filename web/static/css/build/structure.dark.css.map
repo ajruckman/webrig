@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "structure.dark.css",
+	"sources": [
+		"../structure.scss"
+	],
+	"names": [],
+	"mappings": ""
+}

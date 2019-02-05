@@ -45,13 +45,13 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>Client</th>
+        <th style="width: 11em">Client</th>
         <th>Question</th>
-        <th>Type</th>
-        <th>Action</th>
+        <th style="width: 5em">Type</th>
+        <th style="width: 6em;">Action</th>
         <th>Response</th>
-        <th>ResponseType</th>
-        <th>Source</th>
+        <th style="width: 10em">ResponseType</th>
+        <th style="width: 5em">Source</th>
     </tr>
     <tr>
         <th>ID</th>
@@ -75,7 +75,7 @@
     let dt = $("#sampleTable").DataTable({
         columnDefs: [
             {targets: 0, visible: false, searchable: false},
-            {targets: 2, width: "5em"},
+            // {targets: 2, width: "5em"},
         ],
 
         serverSide: true,
@@ -97,6 +97,14 @@
         rowCallback: function(row, data) {
             $(row).find('td:nth-child(1)').addClass("colFirstDisplayed");
             $(row).find('td:nth-child(7)').addClass("colLastDisplayed");
+
+            if (data.Action === "block") {
+                $(row).addClass("rowActionBlock");
+            }
+            if (data.Action === "whitelist") {
+                $(row).addClass("rowActionAllow")
+            }
+
             {{ template "datatables_rowclick" "/testing/view/${data.ID}" }}
         },
 
