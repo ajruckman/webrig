@@ -216,7 +216,7 @@ func ParseDatatablesRequest(form url.Values) (res *DataTablesInfo, err error) {
             }
             // Escape the single quotes and any escape characters and then quote the string
             res.Searchval = strings.Replace(res.Searchval, "\\", "\\\\", -1)
-            res.Searchval = "'" + strings.Replace(res.Searchval, "'", "\\'", -1) + "'"
+            res.Searchval = strings.Replace(res.Searchval, "'", "\\'", -1)
         }
         // Now we check all of the columns to see if they have search expressions
         for _, colData := range res.Columns {
@@ -229,7 +229,7 @@ func ParseDatatablesRequest(form url.Values) (res *DataTablesInfo, err error) {
                 }
                 // Escape the single quotes and any escape characters and then quote the string
                 colData.Searchval = strings.Replace(colData.Searchval, "\\", "\\\\", -1)
-                colData.Searchval = "'" + strings.Replace(colData.Searchval, "'", "\\'", -1) + "'"
+                colData.Searchval = strings.Replace(colData.Searchval, "'", "\\'", -1)
             }
         }
     }
