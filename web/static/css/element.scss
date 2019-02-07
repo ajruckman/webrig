@@ -47,7 +47,7 @@
     background-color: $colorInputBGHover;
   }
 
-  &:active {
+  &:focus {
     background-color: $colorInputBGActive;
   }
 }
